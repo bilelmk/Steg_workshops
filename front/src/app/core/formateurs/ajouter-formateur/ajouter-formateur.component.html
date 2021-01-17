@@ -1,0 +1,50 @@
+<div class="dialog-container">
+
+  <p class="dialog-title" >Ajouter un formateur</p>
+
+  <form [formGroup]="form" class="row justify-content-center align-items-center scale-in-center mt-5">
+
+    <div class="col-11">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nom</mat-label>
+        <input  formControlName="nom" matInput name="nom" type="text" required >
+      </mat-form-field>
+    </div>
+
+    <div class="col-11">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Prenom</mat-label>
+        <input  formControlName="prenom" matInput name="prenom" type="text" required >
+      </mat-form-field>
+    </div>
+
+    <div class="col-11">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email</mat-label>
+        <input formControlName="email" matInput  name="email" type="email"  required/>
+      </mat-form-field>
+    </div>
+
+    <div class="col-11">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>CIN</mat-label>
+        <input  formControlName="cin" matInput name="cin" type="number" required>
+      </mat-form-field>
+    </div>
+
+    <div class="col-11">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Telephone</mat-label>
+        <input  formControlName="telephone" matInput name="telephone" type="number" required>
+      </mat-form-field>
+    </div>
+
+    <div class="col-11">
+      <button (click)="onSave()" class="submit-btn full-width" [disabled]="!form.valid " >
+        Enregister
+      </button>
+    </div>
+
+  </form>
+
+</div>

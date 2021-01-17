@@ -1,0 +1,29 @@
+<div class="dialog-container">
+
+  <p class="dialog-title" >Ajouter un theme</p>
+
+  <form [formGroup]="form" class="row justify-content-center align-items-center scale-in-center mt-5">
+
+    <div class="col-11">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nom</mat-label>
+        <input  formControlName="nom" matInput name="nom" type="text" required >
+      </mat-form-field>
+    </div>
+
+    <div class="col-11">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Description</mat-label>
+        <input  formControlName="description" matInput name="description" type="text" required >
+      </mat-form-field>
+    </div>
+
+    <div class="col-11">
+      <button (click)="onSave()" class="submit-btn full-width" [disabled]="!form.valid " >
+        Enregister
+      </button>
+    </div>
+
+  </form>
+
+</div>
