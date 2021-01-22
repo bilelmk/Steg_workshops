@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Questions</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div  *ngFor="let question of questions">
+    <div *ngIf="question.question_id == current_question.question_id" class="ion-padding-end ion-padding-start scale-in-center">
+      <h2 class="ion-text-center question_number">{{getQuestionIndex(question.question_id)}}</h2>
+      <ion-card class="ion-margin-end ion-margin-start card">
+        <ion-card-content>
+          <ion-list>
+            <ion-radio-group value="{{question.choix_id}}" (ionChange)="selectChoix($event)">
+              <ion-list-header>
+                <ion-label>
+                  {{question.content}}
+                </ion-label>
+              </ion-list-header>
+              <ion-item *ngFor="let choix of question.choix_list" lines="none">
+                <ion-label>{{choix.content}}</ion-label>
+                <ion-radio value="{{choix.id}}"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+      <ion-row class="ion-justify-content-end">
+        <ion-col size="2" >
+          <ion-fab-button [disabled]="isFirst()" (click)="getPrev()" size="small" color="primary">
+            <ion-icon name="chevron-back"></ion-icon>
+          </ion-fab-button>
+        </ion-col>
+        <ion-col size="3">
+          <ion-fab-button [disabled]="!question.choix_id" (click)="getNext()" size="small" color="secondary">
+            <ion-icon name="chevron-forward"></ion-icon>
+          </ion-fab-button>
+        </ion-col>
+      </ion-row>
+
+    </div>
+  </div>
+</ion-content>

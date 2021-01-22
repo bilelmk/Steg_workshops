@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">List des formations</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onLogout()">
+        <ion-icon name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="getFormations($event)">
+    <ion-refresher-content refreshingSpinner="crescent"></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-card *ngFor="let formation of formations" [routerLink]="['/questions' , formation.id]">
+    <ion-card-header>
+      <ion-card-subtitle>{{formation.nom}}</ion-card-subtitle>
+      <ion-card-title>{{formation.theme.nom}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{formation.description}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>
