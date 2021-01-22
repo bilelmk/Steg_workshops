@@ -1,8 +1,10 @@
 package com.steg.workshop.controllers;
 
+import com.steg.workshop.dto.MatriculeDto;
 import com.steg.workshop.models.Agent;
 import com.steg.workshop.services.AgentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,6 +29,11 @@ public class AgentController {
     @DeleteMapping("{id}")
     public void delete(@PathVariable Long id) {
         agentService.delete(id);
+    }
+
+    @PostMapping("login")
+    public ResponseEntity login(@RequestBody MatriculeDto matricule) {
+        return agentService.findByMatricule(matricule.getMatricule()) ;
     }
 
 }

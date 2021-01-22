@@ -25,6 +25,7 @@ export class AjouterAgentComponent implements OnInit {
       'email' : new FormControl(null , [Validators.required , Validators.email]),
       'cin' : new FormControl(null , [Validators.required ]),
       'telephone' : new FormControl(null , Validators.required ),
+      'matricule' : new FormControl(null , Validators.required ),
       'adresse' : new FormControl(null , Validators.required ),
     });
   }

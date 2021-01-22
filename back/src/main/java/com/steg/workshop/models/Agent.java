@@ -20,6 +20,6 @@ public class Agent {
     private String adresse;
     private String email;
     private String telephone;
-//    private String password;
+    private String matricule;
 
 }

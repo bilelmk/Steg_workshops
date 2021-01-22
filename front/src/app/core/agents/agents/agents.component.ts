@@ -16,7 +16,7 @@ export class AgentsComponent implements OnInit {
 
   agents : Agent[] = [] ;
   public dataSource = new MatTableDataSource<Agent>();
-  displayedColumns = ['nom', 'prenom' , 'email' , 'cin' , 'telephone' ,'adresse','buttons'];
+  displayedColumns = ['nom', 'prenom' , 'email' , "matricule", 'cin' , 'telephone' ,'adresse','buttons'];
 
   constructor(private agentService : AgentService ,
               private spinnerService: SpinnerService ,

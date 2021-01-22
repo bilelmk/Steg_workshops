@@ -32,6 +32,13 @@
             </mat-cell>
           </ng-container>
 
+          <ng-container matColumnDef="matricule">
+            <mat-header-cell *matHeaderCellDef >Matricule</mat-header-cell>
+            <mat-cell *matCellDef="let agent" >
+              <p class="cell-text"  > {{agent.matricule}} </p>
+            </mat-cell>
+          </ng-container>
+
           <ng-container matColumnDef="cin">
             <mat-header-cell *matHeaderCellDef >Cin</mat-header-cell>
             <mat-cell *matCellDef="let agent" >

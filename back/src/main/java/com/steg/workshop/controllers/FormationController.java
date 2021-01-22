@@ -21,6 +21,11 @@ public class FormationController {
         return formationService.findAll() ;
     }
 
+    @GetMapping("agent/{id}")
+    public List<Formation> getPending(@PathVariable Long id) {
+        return formationService.findByAgent(id) ;
+    }
+
     @PostMapping()
     public Formation add(@RequestBody Formation formation) {
         return formationService.create(formation);

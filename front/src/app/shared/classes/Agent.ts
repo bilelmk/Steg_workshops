@@ -6,4 +6,5 @@ export class Agent {
   email : string ;
   telephone : string ;
   adresse : string ;
+  matricule : string ;
 }

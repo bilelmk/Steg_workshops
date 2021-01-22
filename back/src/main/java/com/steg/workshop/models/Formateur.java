@@ -10,7 +10,6 @@ import javax.persistence.Id;
 @Entity
 @Data
 public class Formateur {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -19,5 +18,4 @@ public class Formateur {
     private String prenom;
     private String email;
     private String telephone;
-
 }

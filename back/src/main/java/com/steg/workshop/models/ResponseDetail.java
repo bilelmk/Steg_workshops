@@ -6,19 +6,20 @@ import javax.persistence.*;
 
 @Entity
 @Data
-public class Reponse {
+public class ResponseDetail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long detail_id;
 
     @ManyToOne
-    private Agent agent ;
+    private Choix choix_reponse ;
 
     @ManyToOne
     private Question question ;
 
     @ManyToOne
-    private Choix choix_reponse ;
+    @JoinColumn(name = "response_id")
+    private Response response ;
 
 }
