@@ -2,17 +2,44 @@
 
   <p class="dialog-title" >Liste des question</p>
 
-  <button (click)="openAjouterQuestionModal()">Ajouter un question</button>
-  <p *ngFor="let question of questions">
-    {{question.content}}
-    <span *ngFor="let choix of question.choix_list">
-      {{choix.content}}
-    </span>
-    <button (click)="onDeleteQuestion(question.question_id)">
-      delete question
+  <div class="row justify-content-end  p-4" >
+    <button class="option-btn" (click)="openAjouterQuestionModal()">
+      <mat-icon  color="primary">add</mat-icon>
     </button>
-    <button (click)="openAjouterChoixModal(question.question_id)">
-      ajouter choix
-    </button>
-  </p>
+  </div>
+
+  <div>
+    <div class="table">
+      <div class="mat-header-row">
+        <div class="mat-header-cell">Question</div>
+        <div class="mat-header-cell">List des choix</div>
+        <div class="mat-header-cell">Actions</div>
+      </div>
+      <div class="mat-row" *ngFor="let question of questions">
+        <div class="mat-cell cell-text">{{question.content}}</div>
+        <div class="mat-cell cell-text">
+          <table>
+            <tr class="row" *ngFor="let option of question.choix_list">
+              <td class="small-cell">
+                <mat-chip-list>
+                  <mat-chip>
+                    {{option.content}}
+                    <mat-icon class="icon" matChipRemove >cancel</mat-icon>
+                  </mat-chip>
+                </mat-chip-list>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="mat-cell cell-text">
+          <button (click)="onDeleteQuestion(question.question_id)">
+            delete question
+          </button>
+          <button (click)="openAjouterChoixModal(question.question_id)">
+            ajouter choix
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

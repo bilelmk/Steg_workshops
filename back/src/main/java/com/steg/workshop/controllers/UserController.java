@@ -15,13 +15,10 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
-@RequestMapping("users")
-public class UserController
-{
-//    Logger logger = LoggerFactory.getLogger(UserController.class);
+@RequestMapping("authentication")
+public class UserController {
 
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -38,16 +35,11 @@ public class UserController
 
     @PostMapping(value = "/signup")
     public User postAuthenticationData(@RequestBody User user){
-//        try {
-//            this.mailService.sendMail(user);
-//        }catch (Exception e) {
-//            System.out.println(e);
-//        }
         return userDetailsService.creatUser(user) ;
     }
 
     @PostMapping(value = "/login")
-    public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
+    public ResponseEntity createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
         try {
             Authentication a = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword()));
@@ -58,47 +50,5 @@ public class UserController
         final String jwt = jwtTokenUtil.generateToken(userDetails);
         return ResponseEntity.ok(new AuthenticationResponse(jwt , userDetails));
     }
-
-//    @PostMapping(value = "/image")
-//    public User changeProfileImage( @RequestParam("file") MultipartFile file ,  @RequestParam("id")  Long id) {
-//        String path = System.getProperty("user.dir") + "/src/main/resources/static/images/" ;
-//        File folder = new File(path);
-//
-//        if (!folder.exists()) {
-//            if (folder.mkdir()) {
-//                System.out.println("Directory is created!");
-//            } else {
-//                System.out.println("Failed to create directory!");
-//            }
-//        }
-//        String filename = file.getOriginalFilename();
-//        String newFileName = FilenameUtils.getBaseName(filename) + "." + "jpeg";
-//        File serverFile = new File (path + File.separator + newFileName);
-//        try {
-//            FileUtils.writeByteArrayToFile(serverFile,file.getBytes());
-//        } catch(Exception e) { e.printStackTrace(); }
-//
-//        return userService.updateUserImage( "images/" + newFileName ,id) ;
-//    }
-
-//    @PutMapping
-//    public User update(@RequestBody User user) {
-//        return userService.updateUser(user) ;
-//    }
-//
-//    @GetMapping
-//    public List<User> findAll() {
-//        return userService.findAllUsers() ;
-//    }
-//
-//    @GetMapping("{id}")
-//    public User find(@PathVariable Long id) {
-//        return userService.findUserById(id) ;
-//    }
-//
-//    @DeleteMapping("{user_id}")
-//    public void deleteUser(@PathVariable Long user_id) {
-//        userService.deleteUser(user_id);
-//    }
 
 }

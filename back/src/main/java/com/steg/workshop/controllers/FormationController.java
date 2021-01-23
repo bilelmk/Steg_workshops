@@ -1,5 +1,6 @@
 package com.steg.workshop.controllers;
 
+import com.steg.workshop.dto.ResponseResult;
 import com.steg.workshop.models.Formateur;
 import com.steg.workshop.models.Formation;
 import com.steg.workshop.services.FormateurService;
@@ -24,6 +25,11 @@ public class FormationController {
     @GetMapping("agent/{id}")
     public List<Formation> getPending(@PathVariable Long id) {
         return formationService.findByAgent(id) ;
+    }
+
+    @GetMapping("stat/{id}")
+    public List<ResponseResult> getStat(@PathVariable Long id) {
+        return  formationService.getStat(id) ;
     }
 
     @PostMapping()

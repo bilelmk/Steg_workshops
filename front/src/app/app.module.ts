@@ -8,10 +8,10 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './core/home/home.component';
 import { FormateursComponent } from './core/formateurs/formateurs/formateurs.component';
-import {  FormationsComponent } from './core/formations/formations/formations.component';
+import { FormationsComponent } from './core/formations/formations/formations.component';
 import { AgentsComponent } from './core/agents/agents/agents.component';
 import { LoginComponent } from './core/login/login.component';
-import { EvaluationComponent } from './core/evaluation/evaluation.component';
+import { EvaluationComponent } from './core/formations/evaluation/evaluation.component';
 import { QuestionsComponent } from './core/formations/questions/questions/questions.component';
 import { AjouterFormationComponent } from './core/formations/ajouter-formation/ajouter-formation.component';
 import { AjouterAgentComponent } from './core/agents/ajouter-agent/ajouter-agent.component';
@@ -32,11 +32,16 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatMenuModule, MatPaginatorModule,
-  MatRippleModule, MatSelectModule,
+  MatMenuModule,
+  MatPaginatorModule,
+  MatRippleModule,
+  MatSelectModule,
   MatSnackBarModule,
   MatTableModule,
-  MatToolbarModule, MatTooltipModule,
+  MatToolbarModule,
+  MatTooltipModule,
+  MatCardModule,
+  MatChipsModule
 } from '@angular/material';
 
 @NgModule({
@@ -47,12 +52,9 @@ import {
     FormationsComponent,
     AgentsComponent,
     LoginComponent,
-    EvaluationComponent,
     QuestionsComponent,
     ThemesComponent,
-
     SpinnerComponent,
-
     AjouterFormationComponent,
     AjouterAgentComponent,
     AjouterFormateurComponent,
@@ -84,7 +86,9 @@ import {
     NgxSpinnerModule,
     MatTooltipModule,
     MatSelectModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatCardModule,
+    MatChipsModule
   ],
   providers: [],
   entryComponents : [
@@ -98,7 +102,8 @@ import {
     DeleteThemeComponent,
     AjouterThemeComponent,
     QuestionsComponent,
-    AjouterChoixComponent
+    AjouterChoixComponent,
+    EvaluationComponent
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

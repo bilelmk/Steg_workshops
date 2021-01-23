@@ -7,6 +7,7 @@ import { SpinnerService } from '../../../shared/services/in-app/spinner.service'
 import { FormationService } from '../../../shared/services/http/formation.service';
 import { DeleteFormationComponent } from '../delete-formation/delete-formation.component';
 import { QuestionsComponent } from '../questions/questions/questions.component';
+import {EvaluationComponent} from '../evaluation/evaluation.component';
 
 @Component({
   selector: 'app-formations',
@@ -54,7 +55,7 @@ export class FormationsComponent implements OnInit {
   }
 
   openDeleteDialog(id: any) {
-    const dialogRef = this.dialog.open(DeleteFormationComponent, {
+    const dialogRef = this.dialog.open( DeleteFormationComponent, {
       panelClass: 'custom-dialog-container' ,width: '800px', height: '300px' , data: { id : id }
     });
     dialogRef.afterClosed().subscribe(
@@ -65,8 +66,15 @@ export class FormationsComponent implements OnInit {
   }
 
   openQuestionsDialog(id: any) {
-    const dialogRef = this.dialog.open(QuestionsComponent , {
+    const dialogRef = this.dialog.open( QuestionsComponent , {
       panelClass: 'custom-dialog-container' ,width: '800px', height: '600px' , data: { id : id }
     });
   }
+
+  openStatDialog(id: any) {
+    const dialogRef = this.dialog.open( EvaluationComponent , {
+      panelClass: 'custom-dialog-container' ,width: '800px', height: '600px' , data: { id : id }
+    });
+  }
+
 }
