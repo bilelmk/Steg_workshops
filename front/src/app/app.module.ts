@@ -25,6 +25,7 @@ import { DeleteFormateurComponent } from './core/formateurs/delete-formateur/del
 import { DeleteFormationComponent } from './core/formations/delete-formation/delete-formation.component';
 import { DeleteThemeComponent } from './core/themes/delete-theme/delete-theme.component';
 import { AjouterChoixComponent } from './core/formations/questions/ajouter-choix/ajouter-choix.component';
+import {ChartsModule, ThemeService} from 'ng2-charts';
 
 import {
   MatButtonModule,
@@ -65,8 +66,10 @@ import {
     DeleteThemeComponent,
     AjouterThemeComponent,
     AjouterChoixComponent,
+    EvaluationComponent
   ],
   imports: [
+    ChartsModule,
     ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
@@ -90,7 +93,7 @@ import {
     MatCardModule,
     MatChipsModule
   ],
-  providers: [],
+  providers:[ThemeService],
   entryComponents : [
     AjouterFormationComponent,
     AjouterAgentComponent,

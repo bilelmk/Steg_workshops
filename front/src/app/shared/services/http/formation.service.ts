@@ -15,6 +15,10 @@ export class FormationService {
     return this.http.get<Formation[]>(environment.url + "formations" );
   }
 
+  getStat(id :number): Observable<Formation[]> {
+    return this.http.get<Formation[]>(environment.url + "formations/stat/" + id );
+  }
+
   create(formation : Formation): Observable<Formation> {
     return this.http.post<Formation>(environment.url + "formations" , formation);
   }

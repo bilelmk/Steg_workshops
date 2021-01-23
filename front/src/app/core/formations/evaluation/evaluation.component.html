@@ -1,1 +1,11 @@
-<p>evaluation works!</p>
+<div *ngIf="parsed_stats" style="padding-left: 80px;  padding-right: 80px">
+  <div *ngFor="let st of parsed_stats" style="display: block ; margin-top: 50px ; margin-bottom: 50px" >
+    <canvas baseChart
+            [datasets]="st.barChartData"
+            [labels]="st.barChartLabels"
+            [options]="st.barChartOptions"
+            [legend]="st.barChartLegend"
+            [chartType]="'bar'">
+    </canvas>
+  </div>
+</div>
